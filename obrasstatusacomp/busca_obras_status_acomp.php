@@ -117,7 +117,7 @@
                           <tr class="even pointer">
                             <td class=" "><?php echo $rs->IdObraStatus; ?></td>
                             <td class=" "><?php echo $rs->Descricao; ?></td>
-                            <td class=" "><?php if($rs->StatusFinal = 1){echo "Sim";}else{ echo "Não";} ?></td>
+                            <td class=" "><?php if ($rs->StatusFinal == 1) { echo 'Sim'; }else{ echo 'Não'; }?></td>
                             <td class=" last">                              
                                 <a href="editar_obras_status_acomp.php?IdObraStatus=<?php echo $rs->IdObraStatus; ?>">
                                   <i class="fa fa-edit"></i> Editar

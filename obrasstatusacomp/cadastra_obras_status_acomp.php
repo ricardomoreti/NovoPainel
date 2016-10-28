@@ -16,11 +16,10 @@
         $Status = $_POST['Status'];
         $DtInclusao = converteDataHora($_POST['DtInclusao']);
 
-        $sql  = 'INSERT INTO tb_obras_status_acomp (    
-                                                Descricao, 
-                                                StatusFinal,
-                                                Status,
-                                                DtInclusao) ';
+        $sql  = 'INSERT INTO tb_obras_status_acomp (Descricao, 
+                                                    StatusFinal,
+                                                    Status,
+                                                    DtInclusao) ';
         $sql .= 'VALUES ( :Descricao,
                           :StatusFinal, 
                           :Status, 
