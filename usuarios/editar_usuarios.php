@@ -75,31 +75,30 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nível</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
                           <input type="radio" name="Nivel" id="Nivel" value="0" <?php if ($usuarios->Nivel == "0") { ?>checked="checked"<?php } ?> /> Administrador
-                          <input type="radio" name="Status" id="Status" value="1" <?php if ($usuarios->Nivel == "1") { ?>checked="checked"<?php } ?> /> Vendedor
+                          <input type="radio" name="Nivel" id="Nivel" value="1" <?php if ($usuarios->Nivel == "1") { ?>checked="checked"<?php } ?> /> Vendedor
                         </div>
                       </div>
 
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Vendedor</label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <select name="IdPessoa" id="IdPessoa" class="form-control">
+                          <select name="IdVendedor" id="IdVendedor" class="form-control">
                             <option value="">Selecione um vendedor</option>
                             <?php 
                               include_once "../conexao.php";
                               $sqlRead = "SELECT * 
-                                          FROM tb_usuarios US
-                                          LEFT JOIN tb_vendedores VE ON US.IdVendedor = VE.IdVendedor
-                                          LEFT JOIN tb_pessoas PE ON VE.IdPessoa = PE.IdPessoa";
+                                          FROM tb_vendedores VE
+                                          LEFT JOIN tb_pessoas PE ON VE.IdPessoa= PE.IdPessoa";
                               try {
                                 $read = $db->prepare($sqlRead);
                                 $read->execute();
                               } catch (PDOException $e) {
                                 echo $e->getMessage();
                               }
-                              while( $pessoas = $read->fetch(PDO::FETCH_OBJ) ){
+                              while( $rs = $read->fetch(PDO::FETCH_OBJ) ){
                             ?>
                             
-                            <option value=<?php echo $pessoas->IdPessoa; ?> <?php if($usuarios->IdPessoa == $pessoas->IdPessoa){ echo "selected='selected'";} ?> ><?php echo $pessoas->NomePessoa; ?></option>
+                            <option value=<?php echo $rs->IdVendedor; ?>><?php echo $rs->NomePessoa; ?></option>
 
                             <?php  
                               }
