@@ -69,6 +69,7 @@
                         <li><a href=<?php echo $base_url."pessoas/busca_pessoas.php?Status=1" ?>>Pessoas</a></li>
                         <li><a href=<?php echo $base_url."usuarios/busca_usuarios.php?Status=1" ?>>Usuários</a></li>
                         <li><a href=<?php echo $base_url."vendedores/busca_vendedores.php?Status=1" ?>>Vendedores</a></li>
+                        <li><a href=<?php echo $base_url."concorrentes/busca_concorrentes.php?Status=1" ?>>Concorrentes</a></li>
                     </ul>
                   </li>     
 
